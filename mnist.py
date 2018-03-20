@@ -4,7 +4,7 @@ from tensorflow.examples.tutorials.mnist import input_data
 tf.reset_default_graph()
 
 # Hyper Parameters
-learning_rate = 0.01    # ???
+learning_rate = 0.01    # 
 n_steps = 28            # LSTM ????(??????)
 n_inputs = 28           # ?????
 n_hiddens = 64         # ?????
@@ -12,7 +12,7 @@ n_layers = 2            # LSTM layer ??
 n_classes = 10          # ?????(????)
 
 # data
-mnist = input_data.read_data_sets("E:/Anaconda3/workspace/MNIST_data/", one_hot=True)
+mnist = input_data.read_data_sets("MNIST_data/", one_hot=True)
 test_x = mnist.test.images
 test_y = mnist.test.labels
 
@@ -81,8 +81,8 @@ init = tf.group(tf.global_variables_initializer(), tf.local_variables_initialize
 
 with tf.Session() as sess:
     sess.run(init)
-    train_writer = tf.summary.FileWriter("E://logs//train",sess.graph)
-    test_writer = tf.summary.FileWriter("E://logs//test",sess.graph)
+    train_writer = tf.summary.FileWriter(r"./train",sess.graph)
+    test_writer = tf.summary.FileWriter(r"./test",sess.graph)
     # training
     step = 1
     for i in range(2000):
